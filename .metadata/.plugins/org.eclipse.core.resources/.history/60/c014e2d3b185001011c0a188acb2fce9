@@ -1,0 +1,83 @@
+/*Rotate an Array by d - Counterclockwise or Left
+
+Given an array of integers arr[] of size n, 
+the task is to rotate the array elements to the left by d positions.*/
+
+package Arrays.Day2;
+public class RotateArray {
+	public static void main(String[] args) {
+		int[] arr= {1,2,3,4,5};
+		int d=3;
+		rotateArray1(arr,d);
+		for(int i:arr) {
+			System.out.print(i+" ");
+		}
+	}
+	
+	/*Approach - 1
+	 * Rotating one element to left on every iteration
+	 * Time complexity is O(n*m)
+	 * Space Complexity is O(1)
+	 * */
+	static void rotateArray(int[] arr,int d) {
+		
+		int temp=0;
+		for(int i=0;i<d;i++) {
+			temp=arr[0];
+			for(int j=0;j<arr.length-1;j++) {
+				arr[j]=arr[j+1];
+				
+			}
+			arr[arr.length-1]=temp;
+		}
+	}
+	
+	/*Approach -2 
+	 * Using temporary empty array, copying d to n-1 to starting of array 
+	 * and 0 to d to end of array 
+	 * Time complexity is O(n)
+	 * Space Complexity is O(n)
+	 * */
+	
+	static void rotateArray1(int[] arr,int d) {
+		int n=arr.length;
+		int[] temp=new int[n];
+		for(int i=0;i<n;i++) {
+			temp[i]=0;
+		}
+		d%=n;
+		for(int i=0;i<n-d;i++) {
+			temp[i]=arr[d+i];
+		}
+		for(int i=0;i<d;i++) {
+			temp[n-d+i]=arr[i];
+		}
+		for(int i=0;i<n;i++) {
+			arr[i]=temp[i];
+		}
+		
+	}
+	
+	/*Reversal Algorithm
+	 * Reverse sub array 0 to d and sub array n-d to n
+	 * then reverse entire array
+	 * Time complexity is O(n)
+	 * Space complexity  is O(1)
+	 * */
+	
+	static void reversalAlgorithm(int[] arr,int d) {
+		reverseArray(arr,0,d-1);
+		reverseArray(arr,d,arr.length-1);
+		reverseArray(arr,0,arr.length-1);
+	}
+	static void reverseArray(int[] arr,int left,int right) {
+		while(left<right) {
+			int temp=arr[left];
+			arr[left]=arr[right];
+			arr[right]=temp;
+			left++;
+			right--;
+		}
+	}
+	
+}

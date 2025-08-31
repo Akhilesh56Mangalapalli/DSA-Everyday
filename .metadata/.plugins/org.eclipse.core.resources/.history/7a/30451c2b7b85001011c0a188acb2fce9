@@ -1,0 +1,82 @@
+/*
+Given an array , find the second largest element in it and return the element
+*/
+
+/*
+Approach - 1
+Sorting and returning secondLargest
+Time complexity is O(nlogn)
+Space complexity is O(1)
+*/
+
+
+//package Arrays.Day1;
+//import java.util.Arrays;
+//public class SecondLargest {
+//	public static void main(String[] args) {
+//		int[] arr= {2,4,6,8,9,4,0};
+//		System.out.print(secondlargest(arr));
+//	}
+//	
+//	static int secondlargest(int[] arr) {
+//		Arrays.sort(arr);
+//		int n=arr.length;
+//		for(int i=n-2;i>=0;i--) {
+//			if(arr[i]<arr[n-1]) {
+//				return arr[i];
+//			}
+//		}
+//		return -1;
+//	}
+//}
+
+
+
+
+/*
+Approach - 2
+2 loops , 1 for largest and another for second largest
+Time complexity is O(2n) => O(n)
+Space complexity is O(1)
+*/
+
+package Arrays.Day1;
+public class SecondLargest {
+	public static void main(String[] args) {
+		int[] arr= {2,4,6,8,9,4,0};
+		System.out.print(secondlargest(arr));
+	}
+	
+	static int secondlargest(int[] arr) {
+		int n=arr.length;
+		float largest=Float.NEGATIVE_INFINITY;
+		float secLargest=Float.NEGATIVE_INFINITY;
+		for(int i=0;i<n;i++) {
+			if(arr[i]>largest) {
+				largest=arr[i];
+			}
+		}
+		for(int i=0;i<n;i++) {
+			if(arr[i]>secLargest && arr[i]<largest) {
+				secLargest=arr[i];
+			}
+		}
+		
+		if (secLargest==Float.NEGATIVE_INFINITY) {
+			return -1;
+		}
+		else {
+			return secLargest;
+		}
+	}
+}
+
+
+
+/*
+Approach - 3
+One loop , tracking secondLargest when finding largest
+time complexity is O(n)
+space Complexity is O(1)
+*/
+
