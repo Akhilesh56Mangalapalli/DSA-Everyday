@@ -1,0 +1,20 @@
+# Ignore everything at the root
+/*
+!.gitignore
+!/Java/
+!/Java/src/
+!/Java/src/**
+!/Python/
+!/Python/**
+
+
+
+# Ignore specific unwanted file from src
+/Java/src/module-info.java
+
+# Ignore Eclipse config and build folders/files
+/Java/.settings/
+/Java/bin/
+/Java/.classpath
+/Java/.project
+

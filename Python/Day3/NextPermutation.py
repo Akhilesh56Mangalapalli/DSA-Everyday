@@ -42,7 +42,7 @@ class NextPermutation:
             r-=1
             
 if  __name__=="__main__":
-    arr=[2,4,1,7,5,0]
+    arr=[3,2,1]
     n=NextPermutation()
     n.nextPermutation(arr)
     print(arr)
