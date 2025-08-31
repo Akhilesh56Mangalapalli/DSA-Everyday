@@ -25,7 +25,7 @@ class NextPermutation:
         pivot=-1
         for i in range(n-2,-1,-1):
             if  arr[i]<arr[i+1]:
-                pivot=i;
+                pivot=i
                 break
         if pivot==-1:
             arr.reverse()
