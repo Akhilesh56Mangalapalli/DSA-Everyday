@@ -1,0 +1,76 @@
+/*
+Given an array, shift all the zero elements to the end 
+with out effecting the order of the non zero elements
+in place [don't use extra array]
+*/
+
+
+/*
+Approach -1 
+Copying  non zero elements to its preceeding zero elements position
+Two loops 1 -> copying non zeros
+          2 -> assigning remaining with zeros
+
+Time Complexity is Worst case O(2n) ==> O(n)
+Space Complexity is O(1)
+*/
+
+//package Arrays.Day1;
+//
+//public class ShiftZerosToEnd {
+//	public static void main(String[] args) {
+//		int[] arr= {1,5,0,3,0,7,0,6,7,0};
+//		shiftzerostoend(arr);
+//		for(int i:arr) {
+//			System.out.print(i+" ");
+//		}
+//	}
+//	static void shiftzerostoend(int[] arr) {
+//		int n=arr.length;
+//		int count=0;
+//		for(int i=0;i<n;i++) {
+//			if(arr[i]!=0) {
+//				arr[count]=arr[i];
+//				count++;
+//			}
+//		}
+//		while(count<n) {
+//			arr[count]=0;
+//			count++;
+//		}
+//	}
+//}
+
+
+/*
+Approach - 2 
+Swapping  non zero elements to its preceeding zero elements position
+One loops -> swapping non zeros
+
+Time Complexity is O(n)
+Space Complexity is O(1)
+*/
+
+package Arrays.Day1;
+
+public class ShiftZerosToEnd {
+	public static void main(String[] args) {
+		int[] arr= {1,5,0,3,0,7,0,6,7,0};
+		shiftzerostoend(arr);
+		for(int i:arr) {
+			System.out.print(i+" ");
+		}
+	}
+	static void shiftzerostoend(int[] arr) {
+		int n=arr.length;
+		int count=0;
+		for(int i=0;i<n;i++) {
+			if(arr[i]!=0) {
+				int temp=arr[i];
+				arr[i]=arr[count];
+				arr[count]=temp;
+				count++;
+			}
+		}
+	}
+}
